@@ -6,6 +6,13 @@ jobs:
   build-for-m1721:
     runs-on: ubuntu-latest
     steps:
+      - name: Delete huge unnecessary tools folder
+        run: rm -rf /opt/hostedtoolcache
+             rm -rf /usr/share/dotnet
+	     rm -rf /opt/ghc
+             rm -rf "/usr/local/share/boost"
+             rm -rf "$AGENT_TOOLSDIRECTORY"
+        
       - name: Setting up Build Directories
         run: |
           mkdir ~/bin
